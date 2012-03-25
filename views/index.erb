@@ -1,0 +1,8 @@
+<h1>ZJ PM2.5</h1>
+
+<p><%= @matters.first.date if @matters.first %></p>
+<ul>
+<% @matters.each do |m| %>
+  <li><%= m.city %>: <%= m.pm %></li>
+<% end %>
+</ul>
