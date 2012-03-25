@@ -18,6 +18,7 @@ class Matter
       date = Date.today
       data = all(:date => date)
       data = all(:date => date.prev_day) if data.empty?
+      data = all(:date => date.prev_day.prev_day) if data.empty?
     end
 
     def aqi(concentration)

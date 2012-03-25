@@ -57,7 +57,9 @@ table#pm tr {
 }
 
 table#pm thead tr {
-  background: #0f0;
+  background: #060;
+  color: white;
+  font-weight: bold;
 }
 
 table#pm th, table#pm td {
