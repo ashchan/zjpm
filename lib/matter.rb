@@ -15,10 +15,7 @@ class Matter
 
   class << self
     def latest
-      date = Date.today
-      data = all(:date => date)
-      data = all(:date => date.prev_day) if data.empty?
-      #data = all(:date => date.prev_day.prev_day) if data.empty?
+      all(:date => max(:date))
     end
 
     def aqi(concentration)
