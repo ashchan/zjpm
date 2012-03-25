@@ -25,4 +25,11 @@
   </tbody>
 </table>
 
+<h2>AQI图示</h2>
+<table class="aqi-intro">
+  <% aqi_table_rows.each do |r| %>
+    <%= r %>
+  <% end %>
+</table>
+
 <%= erb :footer %>

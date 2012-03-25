@@ -5,8 +5,10 @@ require 'matter'
 DataMapper.finalize
 
 require 'black_widow'
+require 'helpers'
 
 class App < Sinatra::Base
+  helpers Helpers
 
   get '/' do
     @matters = Matter.latest

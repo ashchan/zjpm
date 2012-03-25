@@ -66,3 +66,14 @@ table#pm th, table#pm td {
   text-align: center;
   vertical-align: middle;
 }
+
+table.aqi-intro td {
+  text-align: center;
+  height: 20px;
+}
+
+footer {
+  border-top: solid 1px #ccc;
+  margin-top: 20px;
+}
+
