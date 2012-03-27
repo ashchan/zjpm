@@ -15,7 +15,7 @@ class Matter
 
   class << self
     def latest
-      all(:date => max(:date))
+      all(:date => last.date)
     end
 
     def aqi(concentration)
