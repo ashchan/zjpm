@@ -17,7 +17,7 @@
       <td><%= m.city %></td>
       <td><%= m.pm %> ug/m3</td>
       <td><%= m.aqi[0] %></td>
-      <td style="background:#<%= m.aqi[2] %>"><%= m.aqi[1] %></td>
+      <td data-aqi="<%= m.aqi[1] %>"><%= m.aqi[2] %></td>
     </tr>
   <% end %>
   </tbody>

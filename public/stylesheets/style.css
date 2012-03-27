@@ -72,6 +72,31 @@ table.aqi-intro td {
   height: 20px;
 }
 
+table td[data-aqi="Good"] {
+  background: #00e400;
+}
+
+table td[data-aqi="Moderate"] {
+  background: #ff0;
+}
+
+table td[data-aqi="Unhealthy for Sensitive Groups"] {
+  background: #ff7e00;
+}
+
+table td[data-aqi="Unhealthy"] {
+  background: #f00;
+}
+
+table td[data-aqi="Very Unhealthy"] {
+  background: #99004c;
+}
+
+table td[data-aqi="Hazardous"] {
+  background: #730023;
+}
+
+
 footer {
   display: block;
   border-top: solid 1px #ccc;
