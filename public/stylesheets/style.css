@@ -73,7 +73,12 @@ table.aqi-intro td {
 }
 
 footer {
+  display: block;
   border-top: solid 1px #ccc;
   margin-top: 20px;
+}
+
+footer p {
+  margin: 10px;
 }
 
