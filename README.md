@@ -10,7 +10,7 @@ Sinatra app deployed on Heroku: [zjair.herokuapp.com](http://zjair.herokuapp.com
 
 ## License
 
-Copyright (c) 2012 James Chen ([https://twitter.com/#!/ashchan](@ashchan))
+Copyright (c) 2012 James Chen ([@ashchan](https://twitter.com/#!/ashchan))
 
 Released under the MIT license:
 
