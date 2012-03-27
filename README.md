@@ -7,3 +7,11 @@ Sinatra app deployed on Heroku: [zjair.herokuapp.com](http://zjair.herokuapp.com
 ## 数据来源
 
 [浙江省环境保护厅](http://app.zjepb.gov.cn:8080/wasdemo/search?channelid=121215)
+
+## License
+
+Copyright (c) 2012 James Chen ([https://twitter.com/#!/ashchan](@ashchan))
+
+Released under the MIT license:
+
+* [www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)
