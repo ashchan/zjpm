@@ -6,7 +6,7 @@ class Matter
   property :city,         String
   property :pm,           Integer
   property :iaqi,         Integer
-  property :date,         String#Date
+  property :date,         Date
   property :created_at,   DateTime
 
   def aqi
