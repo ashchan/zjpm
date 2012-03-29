@@ -1,3 +1,6 @@
+require 'bundler'
+Bundler.require
+
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db.db")

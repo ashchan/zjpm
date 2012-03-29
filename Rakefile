@@ -1,6 +1,3 @@
-require 'bundler'
-Bundler.require
-
 require "./app"
 
 desc "daily cron for updating"
