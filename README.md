@@ -8,6 +8,19 @@ Sinatra app deployed on Heroku: [zjair.herokuapp.com](http://zjair.herokuapp.com
 
 [浙江省环境保护厅](http://app.zjepb.gov.cn:8080/wasdemo/search?channelid=121215)
 
+## How to run locally
+
+* bundle install
+* rackup
+
+## How to run console
+
+* racksh
+
+## How to run console on heroku
+
+* heroku run 'irb -r ./app' --app zjair
+
 ## License
 
 Copyright (c) 2012 James Chen ([@ashchan](https://twitter.com/#!/ashchan))
