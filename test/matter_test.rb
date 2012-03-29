@@ -1,3 +1,4 @@
+# encoding: utf-8
 require_relative 'test_helper'
 
 class MatterTest < MiniTest::Unit::TestCase
@@ -5,6 +6,11 @@ class MatterTest < MiniTest::Unit::TestCase
 
   def test_new_instance
     assert_kind_of Matter, Matter.new
+  end
+
+  def test_instance_aqi
+    data = Matter.new :city => "舟山", :pm => 36
+    assert_equal 102, data.aqi.first
   end
 
   def test_aqi_calculation
