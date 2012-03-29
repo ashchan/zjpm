@@ -72,7 +72,6 @@ GEM
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (~> 0.0, >= 0.0.9)
     mime-types (1.18)
-    minitest (2.11.4)
     multi_json (1.0.4)
     net-http-digest_auth (1.2)
     net-http-persistent (2.5.2)
@@ -112,7 +111,6 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-sqlite-adapter
   mechanize (~> 2.3)
-  minitest
   pg
   rack-test
   racksh
