@@ -11,6 +11,11 @@ group :development, :test do
   gem "racksh"
 end
 
+group :test do
+  gem "minitest"
+  gem "rack-test"
+end
+
 group :production do
   gem "pg"
   gem "dm-postgres-adapter"

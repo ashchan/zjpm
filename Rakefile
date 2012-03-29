@@ -1,4 +1,11 @@
+require 'rake/testtask'
+
 require "./app"
+
+Rake::TestTask.new do |t|
+  t.test_files = FileList['test/*_test.rb']
+  t.verbose = true
+end
 
 desc "daily cron for updating"
 task :cron do
