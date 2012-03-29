@@ -2,7 +2,7 @@
 class BlackWidow
   TARGET = "http://app.zjepb.gov.cn:8080/wasdemo/search?channelid=121215"
   DATA_XPATH = "table tr[4] table tr"
-  DATE_XPATH = "table tr[3] font"
+  DATE_XPATH = "div#1"
 
   LABELS = [
     %w(city   城市名称),
@@ -12,14 +12,13 @@ class BlackWidow
 
   def initialize
     @agent = Mechanize.new { |a| a.user_agent_alias = "Windows IE 6" }
+    @page = @agent.get(TARGET)
   end
 
   def bite
-    @page = @agent.get(TARGET)
     col_mapping = {}
 
-    date = @page.root.css(DATE_XPATH).text.split(/[年月日]/).collect(&:to_i)
-    date = Date.new *date
+    date = get_date
     ts = Time.now
 
     return if Matter.first(:date => date)
@@ -41,5 +40,11 @@ class BlackWidow
 
       matter.save
     end
+  end
+
+  private
+  def get_date
+    date = @page.root.css(DATE_XPATH).attr("value").text.split("-").collect(&:to_i)
+    date.size == 3 ? Date.new(*date) : Date.today.prev_date
   end
 end
