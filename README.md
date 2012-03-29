@@ -17,6 +17,10 @@ Sinatra app deployed on Heroku: [zjair.herokuapp.com](http://zjair.herokuapp.com
 
 * racksh
 
+## Tests
+
+* rake test
+
 ## How to run console on heroku
 
 * heroku run 'irb -r ./app' --app zjair
