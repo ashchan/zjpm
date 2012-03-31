@@ -7,8 +7,9 @@
   <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/javascripts/excanvas.min.js"></script><![endif]-->
   <script>
     $(function() {
-      $.plot(
-        $("#placeholder"),
+      var placeholder = $("#placeholder"),
+          plot = $.plot(
+        placeholder,
         [{
           data: <%= @matters.each_with_index.map { |m, i| [i, m.aqi.first] }.to_s %>,
           label: "<%= @matters.first.city %>",
@@ -19,11 +20,24 @@
             points: { show: true },
           },
           xaxis: {
-            ticks: <%= @matters.each_with_index.map { |m, i| [i, m.date.strftime("%-m/%-d")] }.to_s %>
+            ticks: <%= @matters.each_with_index.map { |m, i| [i, m.date.strftime("%-m/%-d")] }.to_s %>,
           },
           yaxis: {
+            transform: function(v) { return Math.sqrt(v); },
             min: 0,
             max: 500
+          },
+          zoom: { interactive: false },
+          pan: { interactive: false},
+          grid: {
+            markings: [
+              { yaxis: { from: 0, to: 50 }, color: "#00e400" },
+              { yaxis: { from: 51, to: 100 }, color: "#ffff00" },
+              { yaxis: { from: 101, to: 150 }, color: "#ff7e00" },
+              { yaxis: { from: 151, to: 200 }, color: "#ff0000" },
+              { yaxis: { from: 201, to: 300 }, color: "#99004c" },
+              { yaxis: { from: 301, to: 500 }, color: "#730023" }
+            ]
           }
         }
       );
