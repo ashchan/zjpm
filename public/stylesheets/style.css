@@ -95,6 +95,10 @@ table#pm td {
   line-height: 28px;
 }
 
+table td[data-aqi] {
+  text-align: left;
+}
+
 table td[data-aqi] span {
   display: inline-block;
   text-align: center;
