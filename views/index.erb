@@ -1,8 +1,6 @@
-<h1>浙江各城市PM<sub>2.5</sub>监测数据</h1>
-
-<p><%= @matters.first.date unless @matters.empty? %></p>
 
 <table id="pm">
+  <caption><h2><%= @matters.first.date unless @matters.empty? %></h2></caption>
   <thead>
     <tr>
       <th>城市</th>
@@ -11,6 +9,12 @@
       <th>等级</th>
     </tr>
   </thead>
+  <tfoot>
+    <tr>
+      <td colspan="4"><small>数据仅供参考。并不保证每日均能抓取到正确数据。</small></td>
+    </tr>
+  </tfoot>
+
   <tbody>
   <% @matters.each do |m| %>
     <tr>
