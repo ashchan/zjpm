@@ -97,6 +97,7 @@ table#pm td {
 
 table td[data-aqi] {
   text-align: left;
+  width: 200px;
 }
 
 table td[data-aqi] span {
