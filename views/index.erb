@@ -15,16 +15,17 @@
   <% @matters.each do |m| %>
     <tr>
       <td><a href="/<%= m.city %>"><%= m.city %></a></td>
-      <td><%= m.pm %> ug/m3</td>
-      <td><%= m.aqi[0] %></td>
-      <td data-aqi="<%= m.aqi[1] %>"><%= m.aqi[2] %></td>
+      <td><strong><%= m.pm %></strong> ug/m3</td>
+      <td><strong><%= m.aqi[0] %></strong></td>
+      <td data-aqi="<%= m.aqi[1] %>"><span></span><%= m.aqi[2] %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<h2>AQI图示</h2>
 <table class="aqi-intro">
+  <caption><h3>AQI 等级说明</h3></caption>
+
   <% aqi_table_rows.each do |r| %>
     <%= r %>
   <% end %>
