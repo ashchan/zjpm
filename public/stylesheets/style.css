@@ -49,27 +49,40 @@ body {
 table#pm {
   margin: 20px auto;
   width: 800px;
-  border: solid 2px #333;
+  border: none;
 }
 
 table#pm tr {
-  border: solid 1px #ccc;
+  border: solid 1px #333;
+  border-left: none;
+  border-right: none;
 }
 
 table#pm thead tr {
-  background: #060;
   color: white;
   font-weight: bold;
 }
 
-table#pm th, table#pm td {
+table th, table td {
   text-align: center;
   vertical-align: middle;
+  height: 28px;
+}
+
+table th {
+  background: #b9c9f1;
+  color: #333;
+  font-weight: bold;
+}
+
+table td {
+  background: #e8edff;
 }
 
 table.aqi-intro td {
   text-align: center;
-  height: 20px;
+  vertical-align: middle;
+  height: 28px;
 }
 
 table td[data-aqi="Good"] {
