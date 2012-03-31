@@ -20,6 +20,10 @@
           },
           xaxis: {
             ticks: <%= @matters.each_with_index.map { |m, i| [i, m.date.strftime("%-m/%-d")] }.to_s %>
+          },
+          yaxis: {
+            min: 0,
+            max: 500
           }
         }
       );
