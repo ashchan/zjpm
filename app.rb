@@ -18,6 +18,15 @@ class App < Sinatra::Base
     erb :index
   end
 
+  get '/:city' do
+    @matters = Matter.all(
+      :city => params[:city],
+      :order => [:date.desc],
+      :limit => 30
+    ).reverse
+    erb :city
+  end
+
   post '/scrape' do
     BlackWidow.new.bite
     "scraped"

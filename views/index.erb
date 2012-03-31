@@ -14,7 +14,7 @@
   <tbody>
   <% @matters.each do |m| %>
     <tr>
-      <td><%= m.city %></td>
+      <td><a href="/<%= m.city %>"><%= m.city %></a></td>
       <td><%= m.pm %> ug/m3</td>
       <td><%= m.aqi[0] %></td>
       <td data-aqi="<%= m.aqi[1] %>"><%= m.aqi[2] %></td>

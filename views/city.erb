@@ -1,0 +1,30 @@
+<% if @matters.size > 0 %>
+  <h1><%= @matters.first.city %>PM<sub>2.5</sub>监测数据</h1>
+  <p><%= @matters.first.date %> ~ <%= @matters.last.date %> (最近<%= @matters.size %>天)</p>
+  <div id="placeholder" style="width: 1000px; height: 600px;"></div>
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/jquery.flot.min.js"></script>
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/javascripts/excanvas.min.js"></script><![endif]-->
+  <script>
+    $(function() {
+      $.plot(
+        $("#placeholder"),
+        [{
+          data: <%= @matters.each_with_index.map { |m, i| [i, m.aqi.first] }.to_s %>,
+          label: "<%= @matters.first.city %>",
+        }],
+        {
+          series: {
+            lines: { show: true },
+            points: { show: true },
+          },
+          xaxis: {
+            ticks: <%= @matters.each_with_index.map { |m, i| [i, m.date.strftime("%-m/%-d")] }.to_s %>
+          }
+        }
+      );
+    });
+  </script>
+<% else %>
+  <p>很可惜，该城市尚无监测数据。</p>
+<% end %>
