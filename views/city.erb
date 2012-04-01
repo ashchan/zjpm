@@ -2,6 +2,7 @@
   <h1><%= @matters.first.city %>PM<sub>2.5</sub>监测数据</h1>
   <p><%= @matters.first.date %> ~ <%= @matters.last.date %> (最近<%= @matters.size %>天)</p>
   <div id="placeholder" style="width: 1000px; height: 600px;"></div>
+  <div id="tip" style="position: absolute; font-weight: 15pt; color: red; font-weight: bold;"></div>
   <script src="/javascripts/jquery.min.js"></script>
   <script src="/javascripts/jquery.flot.min.js"></script>
   <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/javascripts/excanvas.min.js"></script><![endif]-->
@@ -21,26 +22,40 @@
           },
           xaxis: {
             ticks: <%= @matters.each_with_index.map { |m, i| [i, m.date.strftime("%-m/%-d")] }.to_s %>,
+            min: -0.5
           },
           yaxis: {
             transform: function(v) { return Math.sqrt(v); },
+            inverseTransform: function(v) { return v * v; },
             min: 0,
-            max: 500
+            max: 500,
+            ticks: <%= Matter::EPA_TABLE.map { |t| [t[2], "#{t[5]}"] }.to_s %>
           },
           zoom: { interactive: false },
           pan: { interactive: false},
           grid: {
+            hoverable: true,
             markings: [
-              { yaxis: { from: 0, to: 50 }, color: "#00e400" },
-              { yaxis: { from: 51, to: 100 }, color: "#ffff00" },
-              { yaxis: { from: 101, to: 150 }, color: "#ff7e00" },
-              { yaxis: { from: 151, to: 200 }, color: "#ff0000" },
-              { yaxis: { from: 201, to: 300 }, color: "#99004c" },
-              { yaxis: { from: 301, to: 500 }, color: "#730023" }
+              { xaxis: { from: -0.5, to: 0 }, yaxis: { from: 0, to: 50 }, color: "#00e400" },
+              { xaxis: { from: -0.5, to: 0 }, yaxis: { from: 51, to: 100 }, color: "#ffff00" },
+              { xaxis: { from: -0.5, to: 0 }, yaxis: { from: 101, to: 150 }, color: "#ff7e00" },
+              { xaxis: { from: -0.5, to: 0 }, yaxis: { from: 151, to: 200 }, color: "#ff0000" },
+              { xaxis: { from: -0.5, to: 0 }, yaxis: { from: 201, to: 300 }, color: "#99004c" },
+              { xaxis: { from: -0.5, to: 0 }, yaxis: { from: 301, to: 500 }, color: "#730023" }
             ]
           }
         }
       );
+      placeholder.bind("plothover", function(event, pos, item) {
+        var tip = $("#tip");
+        if (item) {
+          tip.html(item.datapoint[1]);
+          tip.show();
+          tip.css("top", item.pageY - 20).css("left", item.pageX - 10);
+        } else {
+          tip.hide();
+        }
+      });
     });
   </script>
 <% else %>
