@@ -15,7 +15,7 @@ class Matter
 
   class << self
     def latest
-      all(:date => last.date)
+      all(:date => all(:order => :date.desc).first.date)
     end
 
     # return [aqi value, category in en, category in zh]
